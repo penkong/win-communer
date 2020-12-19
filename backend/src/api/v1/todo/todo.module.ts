@@ -5,7 +5,9 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 
 // ------------------------ Local ----------------------------------
 
-import { TodoEntity, TodoResolver, TodoService } from '.'
+import { TodoEntity } from './models/todo.entity'
+import { TodoResolver } from './todo.resolver'
+import { TodoService } from './todo.service'
 
 // -----------------------------------------------------------------
 

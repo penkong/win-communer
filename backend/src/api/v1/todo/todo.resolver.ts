@@ -1,27 +1,27 @@
 // ------------------------- Packages ------------------------------
 
-import {
-  Resolver,
-  Query,
-  Mutation,
-  Args,
-  ResolveField,
-  Parent
-} from '@nestjs/graphql'
+import { Logger } from '@nestjs/common'
+import { Resolver, Query, Mutation, Args } from '@nestjs/graphql'
 
 // ------------------------ Local ----------------------------------
 
-import { TodoType, TodoService, CreateTodoInput, TodoEntity } from '.'
+import { TodoType } from './types/todo.type'
+import { CreateTodoInput } from './dto/todo.input'
+import { TodoService } from './todo.service'
 
 // -----------------------------------------------------------------
 
 @Resolver((of) => TodoType)
 export class TodoResolver {
-  // ---
+  // -------------------- Logger --------------------------
+
+  private logger = new Logger(TodoResolver.name)
+
+  // -------------------- Ctor ----------------------------
 
   constructor(private todoService: TodoService) {}
 
-  // ---
+  // -------------------- Functionality -------------------
 
   @Query((returns) => TodoType)
   lesson(@Args('id') id: string) {
@@ -44,6 +44,8 @@ export class TodoResolver {
 
   // ---
 
-  @ResolveField()
-  async some(@Parent() todoEntity: TodoEntity) {}
+  // also can add many other resolver functionality here
+
+  // @ResolveField()
+  // async someWhereElse(@Parent() todoEntity: TodoEntity) {}
 }
