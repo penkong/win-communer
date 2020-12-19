@@ -6,9 +6,11 @@ import { ThemeProvider } from 'styled-components'
 
 // ------------------------ Local ----------------------------------
 
-import { GlobalStyle, darkThemeForExample } from './v1/styles'
-import { AppDiv } from '../App.style'
-import { ErrorBoundary, Spinner } from './v1/components'
+import { GlobalStyle, darkThemeForExample } from './styles'
+import { AppDiv } from './App.style'
+
+import { ErrorBoundary, Spinner } from './components'
+import { Todo, Landing } from './pages'
 
 // -----------------------------------------------------------------
 
@@ -20,8 +22,8 @@ const _App = () => {
         <Switch>
           <ErrorBoundary>
             <Suspense fallback={<Spinner />}>
-              <Route exact path="/todo" component={ContactUs} />
-              <Route exact path="/" component={Landed} />
+              <Route exact path="/todo" component={Todo} />
+              <Route exact path="/" component={Landing} />
             </Suspense>
           </ErrorBoundary>
         </Switch>

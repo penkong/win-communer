@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals'
 // ------------------------ Local ----------------------------------
 
 import 'semantic-ui-css/semantic.min.css'
-import { store, persistor } from './v1/redux'
+import { store, persistor } from './redux'
 import { App } from './App'
 
 // -----------------------------------------------------------------
@@ -25,7 +25,7 @@ ReactDOM.render(
       </PersistGate>
     </Provider>
   </React.StrictMode>,
-  document.getElementById('_win')
+  document.getElementById('_win_Communer')
 )
 
 // If you want to start measuring performance in your app, pass a function

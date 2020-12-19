@@ -5,9 +5,16 @@ WORKDIR /app
 COPY package.json .
 COPY yarn.lock .
 
+
 RUN npm install 
 
 COPY . .
-EXPOSE 3000
+COPY .env.production .env
 
-CMD [ "npm", "start" ]
+RUN npm run build
+
+ENV NODE_ENV production
+
+EXPOSE 8080
+
+# CMD [ "node", "dist/public/index.html" ]
