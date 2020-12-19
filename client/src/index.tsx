@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals'
 // ------------------------ Local ----------------------------------
 
 import 'semantic-ui-css/semantic.min.css'
-import { store, persistor } from './redux/'
+import { store, persistor } from './v1/redux'
 import { App } from './App'
 
 // -----------------------------------------------------------------

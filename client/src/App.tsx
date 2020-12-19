@@ -6,8 +6,9 @@ import { ThemeProvider } from 'styled-components'
 
 // ------------------------ Local ----------------------------------
 
-import { GlobalStyle, darkThemeForExample } from './styles'
+import { GlobalStyle, darkThemeForExample } from './v1/styles'
 import { AppDiv } from '../App.style'
+import { ErrorBoundary, Spinner } from './v1/components'
 
 // -----------------------------------------------------------------
 
