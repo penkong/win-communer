@@ -13,6 +13,11 @@ import { TodoModule } from './api/v1/todo/'
 // -----------------------------------------------------------------
 
 // docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=root -d mysql/mysql-server:5.7
+// docker exec -it mysql mysql -u root -p
+// enter password
+// CREATE DATABASE (if not extist ...) communer;
+// must see line below
+// Query OK, 1 row affected
 
 @Module({
   imports: [
@@ -20,7 +25,8 @@ import { TodoModule } from './api/v1/todo/'
     TypeOrmModule.forRoot(),
     GraphQLModule.forRoot({
       debug: true,
-      playground: true
+      playground: true,
+      autoSchemaFile: true
     }),
     TodoModule
   ],
