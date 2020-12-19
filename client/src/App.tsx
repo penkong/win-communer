@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// ------------------------- Packages ------------------------------
 
-function App() {
+import React, { Suspense } from 'react'
+import { Route, Switch } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+
+// ------------------------ Local ----------------------------------
+
+import { GlobalStyle, darkThemeForExample } from './styles'
+import { AppDiv } from '../App.style'
+
+// -----------------------------------------------------------------
+
+const _App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <ThemeProvider theme={darkThemeForExample}>
+      <GlobalStyle />
+      <AppDiv>
+        <Switch>
+          <ErrorBoundary>
+            <Suspense fallback={<Spinner />}>
+              <Route exact path="/todo" component={ContactUs} />
+              <Route exact path="/" component={Landed} />
+            </Suspense>
+          </ErrorBoundary>
+        </Switch>
+      </AppDiv>
+    </ThemeProvider>
+  )
 }
 
-export default App;
+// -----------------------------------------------------------------
+
+export const App = _App

@@ -1,9 +1,11 @@
 // ------------------------- Packages ------------------------------
 
-import { forwardRef, Module } from '@nestjs/common'
+import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { GraphQLModule } from '@nestjs/graphql'
+import { ServeStaticModule } from '@nestjs/serve-static'
+import { join } from 'path'
 
 // ------------------------ Local ----------------------------------
 
@@ -21,6 +23,9 @@ import { TodoModule } from './api/v1/todo/'
 
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'client', 'public')
+    }),
     ConfigModule.forRoot({ load: [configuration], isGlobal: true }),
     TypeOrmModule.forRoot(),
     GraphQLModule.forRoot({

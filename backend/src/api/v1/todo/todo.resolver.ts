@@ -38,7 +38,7 @@ export class TodoResolver {
   // ---
 
   @Mutation((returns) => TodoType)
-  createLesson(@Args('createTodoInput') createTodoInput: CreateTodoInput) {
+  createTodo(@Args('createTodoInput') createTodoInput: CreateTodoInput) {
     return this.todoService.createTodo(createTodoInput)
   }
 
