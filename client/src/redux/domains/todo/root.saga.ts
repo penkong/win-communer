@@ -1,17 +1,17 @@
 // ------------------------- Packages ------------------------------
 
 import { all, fork } from 'redux-saga/effects'
-import { SearchGetListStartSaga } from '.'
+import { TodoGetListStartSaga } from '.'
 
 // ------------------------- Local ---------------------------------
 
 // -----------------------------------------------------------------
 
-export function* searchSagas() {
-	yield all([
-		// search list
-		fork(SearchGetListStartSaga)
-	])
+export function* todoSagas() {
+  yield all([
+    // search list
+    fork(TodoGetListStartSaga)
+  ])
 }
 
 // -----------------------------------------------------------------

@@ -1,23 +1,19 @@
-export enum EnumSearchAction {
-	// ---------------- UserName ----------------
+export enum EnumTodoAction {
+  // ---------------- Loading --------------------
 
-	SET_USERNAME = 'SET_USERNAME',
+  LOADING_STATE = 'LOADING_STATE',
 
-	// ---------------- Loading ----------------
+  // ---------------- Get --------------------
 
-	SEARCH_LOADING_START = 'SEARCH_LOADING_START',
+  TODO_GET_START = 'TODO_GET_START',
+  TODO_GET_SUCCESS = 'TODO_GET_SUCCESS',
+  TODO_GET_FAILURE = 'TODO_GET_FAILURE',
 
-	// ---------------- Get --------------------
+  // ---------------- Choose -----------------
 
-	SEARCH_GET_START = 'SEARCH_GET_START',
-	SEARCH_GET_SUCCESS = 'SEARCH_GET_SUCCESS',
-	SEARCH_GET_FAILURE = 'SEARCH_GET_FAILURE',
+  TODO_CHOOSE_START = 'TODO_CHOOSE_START',
+  TODO_CHOOSE_SUCCESS = 'TODO_CHOOSE_SUCCESS',
+  TODO_CHOOSE_FAILURE = 'TODO_CHOOSE_FAILURE'
 
-	// ---------------- Choose -----------------
-
-	SEARCH_CHOOSE_START = 'SEARCH_CHOOSE_START',
-	SEARCH_CHOOSE_SUCCESS = 'SEARCH_CHOOSE_SUCCESS',
-	SEARCH_CHOOSE_FAILURE = 'SEARCH_CHOOSE_FAILURE'
-
-	// -----------------------------------------
+  // -----------------------------------------
 }

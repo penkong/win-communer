@@ -6,7 +6,8 @@ import { useDispatch } from 'react-redux'
 
 // ------------------------ Local ----------------------------------
 
-import { SideBarDiv } from './SideBar.style'
+import { MainLayoutProvider } from './MainLayout.style'
+import { Footer, Header, SideBar } from '../../components'
 
 // -----------------------------------------------------------------
 
@@ -14,12 +15,21 @@ interface IAppProps {}
 
 // ---
 
-const _SideBar: React.FC<IAppProps> = () => {
+const _MainLayout: React.FC<IAppProps> = ({ children }) => {
   // ---
 
-  return <SideBarDiv>SideBar</SideBarDiv>
+  return (
+    <MainLayoutProvider>
+      <Header />
+      <div>
+        <SideBar />
+      </div>
+      <div>{children}</div>
+      <Footer />
+    </MainLayoutProvider>
+  )
 }
 
 // ---------------------------------
 
-export const SideBar = _SideBar
+export const MainLayout = _MainLayout

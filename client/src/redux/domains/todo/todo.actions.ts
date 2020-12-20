@@ -2,126 +2,122 @@
 
 // ------------------------ Local ----------------------------------
 
-import { ISearchInfo, ISelectedItem, EnumSearchAction } from '.'
-
-// ------------------------- Username Action ---------------------------------
-
-export interface SetUserNameStartActionType {
-	type: EnumSearchAction.SET_USERNAME
-	payload: string
-}
-
-export const SetUserNameStartAction = (username: string) => ({
-	type: EnumSearchAction.SET_USERNAME,
-	payload: username
-})
+import { ITodoItem, EnumTodoAction } from '.'
 
 // ------------------------- Loading Action ---------------------------------
 
-export interface SearchLoadingStartActionType {
-	type: EnumSearchAction.SEARCH_LOADING_START
-	payload: null
+export interface LoadingStartActionType {
+  type: EnumTodoAction.LOADING_STATE
+  payload: boolean
 }
 
-export const SearchLoadingStartAction = () => ({
-	type: EnumSearchAction.SEARCH_LOADING_START,
-	payload: null
+export const LoadingStartAction = () => ({
+  type: EnumTodoAction.LOADING_STATE,
+  payload: true
 })
 
-// ------------------------- Search Actions ---------------------------------
-
-export interface SearchGetStartActionType {
-	type: EnumSearchAction.SEARCH_GET_START
-	payload: string
+export interface LoadingFinishedActionType {
+  type: EnumTodoAction.LOADING_STATE
+  payload: boolean
 }
 
-export const SearchGetStartAction = (query: string) => ({
-	type: EnumSearchAction.SEARCH_GET_START,
-	payload: query
+export const LoadingFinishedAction = () => ({
+  type: EnumTodoAction.LOADING_STATE,
+  payload: false
+})
+
+// ------------------------- TODO Actions ---------------------------------
+
+export interface TodoGetStartActionType {
+  type: EnumTodoAction.TODO_GET_START
+  payload: any
+}
+
+export const TodoGetStartAction = () => ({
+  type: EnumTodoAction.TODO_GET_START,
+  payload: null
 })
 
 // ---
 
-export interface SearchGetSuccessActionType {
-	type: EnumSearchAction.SEARCH_GET_SUCCESS
-	payload: ISearchInfo[]
+export interface TodoGetSuccessActionType {
+  type: EnumTodoAction.TODO_GET_SUCCESS
+  payload: ITodoItem[]
 }
 
-export const SearchGetSuccessAction = (info: ISearchInfo[]) => ({
-	type: EnumSearchAction.SEARCH_GET_SUCCESS,
-	payload: info
+export const TodoGetSuccessAction = (info: ITodoItem[]) => ({
+  type: EnumTodoAction.TODO_GET_SUCCESS,
+  payload: info
 })
 
 // ---
 
-export interface SearchGetFailureActionType {
-	type: EnumSearchAction.SEARCH_GET_FAILURE
-	payload: string
+export interface TodoGetFailureActionType {
+  type: EnumTodoAction.TODO_GET_FAILURE
+  payload: string
 }
 
-export const SearchGetFailureAction = (
-	error: string = 'there is problem with search'
+export const TodoGetFailureAction = (
+  error: string = 'there is problem with get todos'
 ) => ({
-	type: EnumSearchAction.SEARCH_GET_FAILURE,
-	payload: error
+  type: EnumTodoAction.TODO_GET_FAILURE,
+  payload: error
 })
 
 // ------------------------- Choose Items Actions ---------------------------------
 
-export interface SearchChooseStartActionType {
-	type: EnumSearchAction.SEARCH_CHOOSE_START
-	payload: ISelectedItem
+export interface TodoChooseStartActionType {
+  type: EnumTodoAction.TODO_CHOOSE_START
+  payload: ITodoItem
 }
 
-export const SearchChooseStartAction = (info: ISelectedItem) => ({
-	type: EnumSearchAction.SEARCH_CHOOSE_START,
-	payload: info
+export const TodoChooseStartAction = (info: ITodoItem) => ({
+  type: EnumTodoAction.TODO_CHOOSE_START,
+  payload: info
 })
 
 // ---
 
-export interface SearchChooseSuccessActionType {
-	type: EnumSearchAction.SEARCH_CHOOSE_SUCCESS
-	payload: null
+export interface TodoChooseSuccessActionType {
+  type: EnumTodoAction.TODO_CHOOSE_SUCCESS
+  payload: any
 }
 
-export const SearchChooseSuccessAction = () => ({
-	type: EnumSearchAction.SEARCH_CHOOSE_SUCCESS,
-	payload: null
+export const TodoChooseSuccessAction = () => ({
+  type: EnumTodoAction.TODO_CHOOSE_SUCCESS,
+  payload: null
 })
 
 // ---
 
-export interface SearchChooseFailureActionType {
-	type: EnumSearchAction.SEARCH_CHOOSE_FAILURE
-	payload: string
+export interface TodoChooseFailureActionType {
+  type: EnumTodoAction.TODO_CHOOSE_FAILURE
+  payload: string
 }
 
-export const SearchChooseFailureAction = (
-	error: string = 'there is problem with select item'
+export const TodoChooseFailureAction = (
+  error: string = 'there is problem with select item'
 ) => ({
-	type: EnumSearchAction.SEARCH_CHOOSE_FAILURE,
-	payload: error
+  type: EnumTodoAction.TODO_CHOOSE_FAILURE,
+  payload: error
 })
 
 // --------------------------------------------------------------------------------
 
-export type SearchAction =
-	| typeof SetUserNameStartAction
-	| typeof SearchLoadingStartAction
-	| typeof SearchGetStartAction
-	| typeof SearchGetSuccessAction
-	| typeof SearchGetFailureAction
-	| typeof SearchChooseStartAction
-	| typeof SearchChooseSuccessAction
-	| typeof SearchChooseFailureAction
+export type TodoAction =
+  | typeof LoadingStartAction
+  | typeof TodoGetStartAction
+  | typeof TodoGetSuccessAction
+  | typeof TodoGetFailureAction
+  | typeof TodoChooseStartAction
+  | typeof TodoChooseSuccessAction
+  | typeof TodoChooseFailureAction
 
-export type SearchActionsType =
-	| SetUserNameStartActionType
-	| SearchLoadingStartActionType
-	| SearchGetStartActionType
-	| SearchGetSuccessActionType
-	| SearchGetFailureActionType
-	| SearchChooseStartActionType
-	| SearchChooseSuccessActionType
-	| SearchChooseFailureActionType
+export type TodoActionsType =
+  | LoadingStartActionType
+  | TodoGetStartActionType
+  | TodoGetSuccessActionType
+  | TodoGetFailureActionType
+  | TodoChooseStartActionType
+  | TodoChooseSuccessActionType
+  | TodoChooseFailureActionType

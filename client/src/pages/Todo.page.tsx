@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux'
 
 // ------------------------ Local ----------------------------------
 
+import { MainLayout } from '../layouts/'
+
 // -----------------------------------------------------------------
 
 interface IAppProps {}
@@ -15,7 +17,7 @@ interface IAppProps {}
 const _Todo: React.FC<IAppProps> = () => {
   // ---
 
-  return <div>todo page</div>
+  return <MainLayout>todo page</MainLayout>
 }
 
 // ---------------------------------

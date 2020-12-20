@@ -6,4 +6,4 @@ import styled from 'styled-components'
 
 // -----------------------------------------------------------------
 
-export const HeaderNav = styled.nav``
+export const MainLayoutProvider = styled.main``

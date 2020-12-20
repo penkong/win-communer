@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux'
 
 // ------------------------ Local ----------------------------------
 
+import { MainLayout } from '../layouts'
+
 // -----------------------------------------------------------------
 
 interface IAppProps {}
@@ -15,7 +17,7 @@ interface IAppProps {}
 const _Landing: React.FC<IAppProps> = () => {
   // ---
 
-  return <div>landing page</div>
+  return <MainLayout>landing page</MainLayout>
 }
 
 // ---------------------------------

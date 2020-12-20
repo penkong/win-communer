@@ -5,43 +5,38 @@ import { put, select, takeLatest } from 'redux-saga/effects'
 // ------------------------- Local ---------------------------------
 
 import {
-	EnumSearchAction,
-	SearchService,
-	ISearchInfo,
-	SearchLoadingStartAction,
-	SearchGetStartActionType,
-	SearchGetSuccessAction,
-	SearchGetFailureAction
+  EnumTodoAction,
+  TodoService,
+  ITodoItem,
+  LoadingStartAction,
+  TodoGetStartActionType,
+  TodoGetSuccessAction,
+  TodoGetFailureAction
 } from '..'
-import { IApplicationStateModel } from '../../../rootReducer'
 
 // -----------------------------------------------------------------
 
-const { SEARCH_GET_START } = EnumSearchAction
-
 // ------------------------- Search --------------------------------
 
-export function* SearchGetListSaga({ payload }: SearchGetStartActionType) {
-	yield put(SearchLoadingStartAction())
-	try {
-		const data: ISearchInfo[] = yield SearchService.searchWinGG(
-			payload
-		) as Promise<ISearchInfo>
+export function* TodoGetListSaga({ payload }: TodoGetStartActionType) {
+  yield put(LoadingStartAction())
+  try {
+    const data: ITodoItem[] = yield TodoService.getTodos('fsdfsd')
 
-		if (data[0].documents.length > 0) {
-			yield put(SearchGetSuccessAction(data))
-		}
-	} catch (error) {
-		console.log(error.response)
-		yield put(SearchGetFailureAction(error.reponse))
-	}
+    if (data) {
+      yield put(TodoGetSuccessAction(data))
+    }
+  } catch (error) {
+    console.log(error.response)
+    yield put(TodoGetFailureAction(error.reponse))
+  }
 }
 
 // ------------------------- Main -----------------------------------
 
-export function* SearchGetListStartSaga() {
-	yield takeLatest<SearchGetStartActionType>(
-		SEARCH_GET_START,
-		SearchGetListSaga
-	)
+export function* TodoGetListStartSaga() {
+  yield takeLatest<TodoGetStartActionType>(
+    EnumTodoAction.TODO_GET_START,
+    TodoGetListSaga
+  )
 }
