@@ -1,0 +1,6 @@
+# for example
+query GetTodo($id: Int!) {
+  getTodo(id: $id) {
+    
+  }
+}

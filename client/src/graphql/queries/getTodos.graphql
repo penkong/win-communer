@@ -1,0 +1,6 @@
+# for example
+query GetTodos() {
+  getTodos() {
+    
+  }
+}

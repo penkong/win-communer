@@ -24,14 +24,14 @@ export class TodoResolver {
   // -------------------- Functionality -------------------
 
   @Query((returns) => TodoType)
-  lesson(@Args('id') id: string) {
+  getTodo(@Args('id') id: string) {
     return this.todoService.getTodo(id)
   }
 
   // ---
 
   @Query((returns) => [TodoType])
-  lessons() {
+  getTodos() {
     return this.todoService.getTodos()
   }
 
